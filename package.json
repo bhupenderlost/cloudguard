@@ -21,6 +21,7 @@
     "@electron-toolkit/preload": "^3.0.1",
     "@electron-toolkit/utils": "^3.0.0",
     "@heroicons/react": "^2.1.5",
+    "chart.js": "^4.4.4",
     "heroicons": "^2.1.5",
     "react-router-dom": "^6.26.2"
   },
