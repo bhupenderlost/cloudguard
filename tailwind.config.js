@@ -12,7 +12,9 @@ export default {
       'red': '#FE5C73',
       'grey': '#F5F7FA',
       'darkblue': '#343C6A',
-      'textgrey': '#B1B1B1'
+      'textgrey': '#B1B1B1',
+      'darkbg': '#0D1321',
+      'darkbg2': '#0d1321fb'
      }
     },
   },

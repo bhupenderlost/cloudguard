@@ -68,8 +68,8 @@ const Base = ({ children, title }) => {
         document.body.classList.toggle("dark")
     }
     return(
-        <div className="w-screen h-screen bg-grey flex flex-row dark:bg-[#0d1321fb] dark:text-white">
-            <div className="h-screen w-1/6  bg-[#fff] shadow-sm dark:bg-[#0D1321]">
+        <div className="w-screen h-screen bg-grey flex flex-row dark:bg-darkbg2 dark:text-white">
+            <div className="h-screen w-1/6  bg-[#fff] shadow-sm dark:bg-darkbg">
                 <div className="flex flex-col justify-center items-center h-[80px]">
                     <img src={Logo} alt="Cloudguard Logo" className="p-2"  />
                 </div>
@@ -89,27 +89,27 @@ const Base = ({ children, title }) => {
                 </div>
             </div>
             <div className="w-5/6">
-                <div className="bg-[#fff] w-full h-[80px] shadow-sm flex flex-row items-center px-5 dark:bg-[#0D1321]">
+                <div className="bg-[#fff] w-full h-[80px] shadow-sm flex flex-row items-center px-5 dark:bg-darkbg">
                     <div className="w-1/2">
-                        <h1 className="text-[24px] font-semibold text-[#343C6A] dark:text-[#B1B1B1]">{ title }</h1>
+                        <h1 className="text-[24px] font-semibold text-[#343C6A] dark:text-textgrey">{ title }</h1>
                     </div>
-                    <div className="w-1/2 flex flex-row justify-evenly items-center">
-                        <form action="#" className="flex flex-row">
+                    <div className="w-1/2 flex flex-row justify-evenly items-center dark:darkbg2">
+                        <form action="#" className="flex flex-row dark:darkbg2">
                             { !hide ? <MagnifyingGlassIcon height={24} width={24} className="text-red mt-3 absolute ml-4" /> : ''}
-                            <input onChange={(e) => e.target.value.length > 0 ? setHide(true) : setHide(false)} className="font-light w-[250px] h-[50px] bg-[#F5F7FA] text-darkblue rounded-full text-center p-2 shadow-inner shadow-sm focus:outline-none" type="text" placeholder="Search for something" />
+                            <input onChange={(e) => e.target.value.length > 0 ? setHide(true) : setHide(false)} className="font-light w-[250px] h-[50px] bg-[#F5F7FA] text-darkblue rounded-full text-center p-2 shadow-inner shadow-sm focus:outline-none dark:bg-darkbg2 dark:text-textgrey dark:border-gray-800 dark:border-2" type="text" placeholder="Search for something" />
                         </form>
-                        <div className="rounded-full w-[50px] h-[50px] bg-grey flex justify-center items-center shadow-inner shadow-sm">
-                            <Cog6ToothIcon width={24} height={28} className="text-darkblue" />
+                        <div className="rounded-full w-[50px] h-[50px] bg-grey flex justify-center items-center shadow-inner shadow-sm dark:bg-darkbg">
+                            <Cog6ToothIcon width={24} height={28} className="text-darkblue dark:text-textgrey" />
                         </div>
-                        <div className="rounded-full w-[50px] h-[50px] bg-grey flex justify-center items-center shadow-inner shadow-sm">
-                            <BellAlertIcon width={24} height={28} className="text-blue" />
+                        <div className="rounded-full w-[50px] h-[50px] bg-grey flex justify-center items-center shadow-inner shadow-sm dark:bg-darkbg">
+                            <BellAlertIcon width={24} height={28} className="text-blue dark:text-textgrey" />
                         </div>
-                        <div onClick={changeTheme} className="rounded-full w-[50px] h-[50px] bg-grey flex justify-center items-center shadow-inner shadow-sm hover:cursor-pointer">
+                        <div onClick={changeTheme} className="rounded-full w-[50px] h-[50px] bg-grey flex justify-center items-center shadow-inner shadow-sm hover:cursor-pointer dark:bg-darkbg">
                             { !dark ? <MoonIcon width={24} height={28} className="text-darkblue" /> : ''}
-                            { dark ? <SunIcon width={24} height={28} className="text-darkblue" /> : ''}
+                            { dark ? <SunIcon width={24} height={28} className="text-textgrey" /> : ''}
                         </div>
-                        <div className="rounded-full w-[60px] h-[60px] bg-grey flex justify-center items-center">
-                            <img src={ProfilePicture} alt="Profile Picture" className=""  />
+                        <div className="rounded-full w-[60px] h-[60px] bg-grey flex justify-center items-center dark:bg-darkbg">
+                            <img src={ProfilePicture} alt="Profile Picture" className="rounded-full w-[60px] h-[60px] dark:bg-darkbg"  />
                         </div>
                     </div>
                 </div>

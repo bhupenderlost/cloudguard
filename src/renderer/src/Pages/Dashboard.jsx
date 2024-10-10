@@ -26,16 +26,16 @@ const Dashboard = () => {
         <Base title={'Dashboard'}>
             <div className="flex flex-row justify-evenly h-1/2 w-full">
                 <div className="w-2/3">
-                    <h1 className="text-xl ml-4 py-4 text-[#343C6A] font-semibold">Weekly Activity</h1>
+                    <h1 className="text-xl ml-4 py-4 text-[#343C6A] font-semibold dark:text-textgrey">Weekly Activity</h1>
                 </div>
                 <div className="w-1/3">
-                    <h1 className="text-xl ml-4 py-4 text-[#343C6A] font-semibold">Recent Transactions</h1>
+                    <h1 className="text-xl ml-4 py-4 text-[#343C6A] font-semibold dark:text-textgrey">Recent Transactions</h1>
                 </div>
             </div>
             <div className="h-1/2 w-full">
                 <div className="flex flex-row justify-between w-full">
-                    <h1 className="text-xl ml-4 py-4 text-[#343C6A] font-semibold">Recent Projects</h1>
-                    <Link className="text-[#343C6A] font-semibold hover:underline transition-all" to="/projects">View All</Link>
+                    <h1 className="text-xl ml-4 py-4 text-[#343C6A] font-semibold dark:text-textgrey">Recent Projects</h1>
+                    <Link className="text-[#343C6A] font-semibold hover:underline transition-all dark:text-textgrey" to="/projects">View All</Link>
                 </div>
                 <div className="flex flex-row justify-evenly items-center">
                     {
