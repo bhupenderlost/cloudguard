@@ -12,8 +12,7 @@ import {
     MagnifyingGlassIcon,
     BellAlertIcon,
     MoonIcon,
-    SunIcon
-    
+    SunIcon,
 } from '@heroicons/react/24/outline'
 
 const Base = ({ children, title }) => {
@@ -71,7 +70,7 @@ const Base = ({ children, title }) => {
         <div className="w-screen h-screen bg-grey flex flex-row dark:bg-darkbg2 dark:text-white">
             <div className="h-screen w-1/6  bg-[#fff] shadow-sm dark:bg-darkbg">
                 <div className="flex flex-col justify-center items-center h-[80px]">
-                    <img src={Logo} alt="Cloudguard Logo" className="p-2"  />
+                    <img src={Logo} alt="Cloudguard Logo" className="p-2 dark:invert"  />
                 </div>
                 <div>
                     <ul className="flex flex-col mt-6">
@@ -98,18 +97,18 @@ const Base = ({ children, title }) => {
                             { !hide ? <MagnifyingGlassIcon height={24} width={24} className="text-red mt-3 absolute ml-4" /> : ''}
                             <input onChange={(e) => e.target.value.length > 0 ? setHide(true) : setHide(false)} className="font-light w-[250px] h-[50px] bg-[#F5F7FA] text-darkblue rounded-full text-center p-2 shadow-inner shadow-sm focus:outline-none dark:bg-darkbg2 dark:text-textgrey dark:border-gray-800 dark:border-2" type="text" placeholder="Search for something" />
                         </form>
-                        <div className="rounded-full w-[50px] h-[50px] bg-grey flex justify-center items-center shadow-inner shadow-sm dark:bg-darkbg">
+                        <div className="rounded-full w-[50px] h-[50px] bg-grey flex justify-center items-center shadow-inner shadow-sm dark:bg-darkbg dark:border-gray-800 dark:border-2">
                             <Cog6ToothIcon width={24} height={28} className="text-darkblue dark:text-textgrey" />
                         </div>
-                        <div className="rounded-full w-[50px] h-[50px] bg-grey flex justify-center items-center shadow-inner shadow-sm dark:bg-darkbg">
+                        <div className="rounded-full w-[50px] h-[50px] bg-grey flex justify-center items-center shadow-inner shadow-sm dark:bg-darkbg dark:border-gray-800 dark:border-2">
                             <BellAlertIcon width={24} height={28} className="text-blue dark:text-textgrey" />
                         </div>
-                        <div onClick={changeTheme} className="rounded-full w-[50px] h-[50px] bg-grey flex justify-center items-center shadow-inner shadow-sm hover:cursor-pointer dark:bg-darkbg">
-                            { !dark ? <MoonIcon width={24} height={28} className="text-darkblue" /> : ''}
-                            { dark ? <SunIcon width={24} height={28} className="text-textgrey" /> : ''}
+                        <div onClick={changeTheme} className="rounded-full w-[50px] h-[50px] bg-grey flex justify-center items-center shadow-inner shadow-sm hover:cursor-pointer dark:bg-darkbg dark:border-gray-800 dark:border-2" >
+                            { !dark ? <MoonIcon width={24} height={28} className="text-darkblue " /> : ''}
+                            { dark ? <SunIcon width={24} height={28} className="text-textgrey " /> : ''}
                         </div>
-                        <div className="rounded-full w-[60px] h-[60px] bg-grey flex justify-center items-center dark:bg-darkbg">
-                            <img src={ProfilePicture} alt="Profile Picture" className="rounded-full w-[60px] h-[60px] dark:bg-darkbg"  />
+                        <div className="rounded-full w-[55px] h-[55px] bg-grey flex justify-center items-center dark:bg-darkbg dark:border-gray-800 dark:border-2">
+                            <img src={ProfilePicture} alt="Profile Picture" className=" rounded-full dark:bg-darkbg"  />
                         </div>
                     </div>
                 </div>

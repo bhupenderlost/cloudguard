@@ -8,7 +8,7 @@ const Wallet = () => {
     })
     return(
         <Base title={'Wallet'}>
-            
+           
         </Base>
     )
 

@@ -23,6 +23,7 @@
     "@heroicons/react": "^2.1.5",
     "chart.js": "^4.4.4",
     "heroicons": "^2.1.5",
+    "react-chartjs-2": "^5.2.0",
     "react-router-dom": "^6.26.2"
   },
   "devDependencies": {
