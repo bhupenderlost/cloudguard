@@ -14,7 +14,9 @@ export default {
       'darkblue': '#343C6A',
       'textgrey': '#B1B1B1',
       'darkbg': '#0D1321',
-      'darkbg2': '#0d1321fb'
+      'darkbg2': '#0d1321fb',
+      'green': '#16DBCC',
+      'yellow': '#FFBB38'
      }
     },
   },
