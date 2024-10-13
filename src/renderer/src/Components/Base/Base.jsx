@@ -1,3 +1,5 @@
+// eslint-disable-next-line prettier/prettier
+/* eslint-disable react/prop-types */
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Logo from '../../Assets/Media/logo.png'
