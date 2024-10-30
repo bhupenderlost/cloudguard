@@ -17,7 +17,7 @@ import {
 
 const Base = ({ children, title }) => {
     const [hide, setHide] = useState(false)
-    const [dark, setDark] = useState(false)
+    const [dark, setDark] = useState(localStorage.getItem('theme') === 'dark' ? true : false)
     const menuItems = [
         {
             _id: "1",
@@ -62,9 +62,14 @@ const Base = ({ children, title }) => {
             icon: <Cog6ToothIcon width={28} height={28} className={location.hash === '#/settings' ? 'text-[#FE5C73] my-1 mx-2' : 'text-[#B1B1B1] my-1 mx-2'} />
         }
     ]
+
     const changeTheme = () => {
         setDark(!dark)
         document.body.classList.toggle("dark")
+        alert(localStorage.getItem('theme'))
+        localStorage.getItem('theme') == 'light' ? localStorage.setItem('theme', 'dark') : null
+        localStorage.getItem('theme') == 'dark' ? localStorage.setItem('theme', 'light')  : null
+        
     }
     return(
         <div className="w-screen h-screen bg-grey flex flex-row dark:bg-darkbg2 dark:text-white">
@@ -104,8 +109,8 @@ const Base = ({ children, title }) => {
                             <BellAlertIcon width={24} height={28} className="text-blue dark:text-textgrey" />
                         </div>
                         <div onClick={changeTheme} className="rounded-full w-[50px] h-[50px] bg-grey flex justify-center items-center shadow-inner shadow-sm hover:cursor-pointer dark:bg-darkbg dark:border-gray-800 dark:border-2" >
-                            { !dark ? <MoonIcon width={24} height={28} className="text-darkblue " /> : ''}
-                            { dark ? <SunIcon width={24} height={28} className="text-textgrey " /> : ''}
+                            { localStorage.getItem('theme') === 'light' ? <MoonIcon width={24} height={28} className="text-darkblue " /> : ''}
+                            { localStorage.getItem('theme') === 'dark' ? <SunIcon width={24} height={28} className="text-textgrey " /> : ''}
                         </div>
                         <div className="rounded-full w-[55px] h-[55px] bg-grey flex justify-center items-center dark:bg-darkbg dark:border-gray-800 dark:border-2">
                             <img src={ProfilePicture} alt="Profile Picture" className=" rounded-full dark:bg-darkbg"  />

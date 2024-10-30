@@ -15,7 +15,9 @@ function createWindow() {
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
       sandbox: false
-    }
+    },
+    titleBarStyle: 'hiddenInset'
+   
   })
 
   mainWindow.on('ready-to-show', () => {
