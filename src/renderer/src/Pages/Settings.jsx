@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Switch } from '@headlessui/react';
 import Base from '../Components/Base/Base'; // Importing Base component
+import ProfilePicture from '../Assets/Media/profile-picture.jpg';
 
 const Settings = () => {
   useEffect(() => {
@@ -20,7 +21,7 @@ const Settings = () => {
     phone: '+91 XXXXXXXXX',
   });
 
-  const [profilePicture, setProfilePicture] = useState('https://i.pravatar.cc/100'); // Placeholder image
+  const [profilePicture, setProfilePicture] = useState(''); // Placeholder image
   const [enabled, setEnabled] = useState(false);
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
@@ -38,7 +39,6 @@ const Settings = () => {
   const handleBlur = (e) => {
     const { name, value } = e.target;
     console.log(`${name} field blurred with value: ${value}`);
-    // You can add any additional validation or logic here
   };
 
   const handleProfilePictureChange = (e) => {
@@ -66,39 +66,39 @@ const Settings = () => {
 
   return (
     <Base title={'Settings'}>
-      <div style={styles.settingsContainer}>
+      <div className="max-w-3xl mx-auto p-10 bg-white dark:bg-darkbg2 rounded-lg shadow-lg dark:text-textgrey">
         {/* Header Area */}
-        <div style={styles.header}>
-          <div style={styles.profilePictureContainer}>
+        <div className="flex flex-col items-center mb-8">
+          <div className="relative">
             <img
-              src={profilePicture}
+              src={ProfilePicture}
               alt="profile"
-              style={styles.profileImage}
+              className="w-32 h-32 rounded-full object-cover border-4 border-red"
             />
-            <label htmlFor="profilePicUpload" style={styles.editIcon}>
+            <label htmlFor="profilePicUpload" className="absolute bottom-0 right-0 bg-red text-white rounded-full p-2 cursor-pointer">
               ✏️
             </label>
             <input
               type="file"
               id="profilePicUpload"
-              style={styles.fileInput}
+              className="hidden"
               accept="image/*"
               onChange={handleProfilePictureChange}
             />
           </div>
-          <h2 style={styles.userName}>{formData.name}</h2>
+          <h2 className="text-2xl font-bold mt-4 text-gray-800 dark:text-gray-100">{formData.name}</h2>
         </div>
 
         {/* Tab Navigation */}
-        <div style={styles.tabs}>
+        <div className="flex justify-center mb-4">
           <span
-            style={activeTab === 'profile' ? { ...styles.tab, ...styles.activeTab } : styles.tab}
+            className={`${activeTab === 'profile' ? 'border-b-2 border-red text-red' : 'text-gray-500'} mx-4 cursor-pointer font-semibold pb-2`}
             onClick={() => setActiveTab('profile')}
           >
             Edit Profile
           </span>
           <span
-            style={activeTab === 'security' ? { ...styles.tab, ...styles.activeTab } : styles.tab}
+            className={`${activeTab === 'security' ? 'border-b-2 border-red text-red' : 'text-gray-500'} mx-4 cursor-pointer font-semibold pb-2`}
             onClick={() => setActiveTab('security')}
           >
             Security
@@ -106,11 +106,11 @@ const Settings = () => {
         </div>
 
         {activeTab === 'profile' ? (
-          <form onSubmit={handleSubmit} style={styles.profileForm}>
-            <div style={styles.formContent}>
-              <div style={styles.inputRow}>
-                <div style={styles.formGroup}>
-                  <label style={styles.label}>Your Name</label>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="space-y-4">
+              <div className="flex gap-4">
+                <div className="w-1/2">
+                  <label className="block text-gray-800 dark:text-gray-200 font-semibold">Your Name</label>
                   <input
                     type="text"
                     name="name"
@@ -118,12 +118,12 @@ const Settings = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     placeholder="Enter your name"
-                    style={styles.input}
+                    className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500 dark:bg-gray-700 dark:text-white"
                   />
                 </div>
 
-                <div style={styles.formGroup}>
-                  <label style={styles.label}>User Name</label>
+                <div className="w-1/2">
+                  <label className="block text-gray-800 dark:text-gray-200 font-semibold">User Name</label>
                   <input
                     type="text"
                     name="username"
@@ -131,15 +131,15 @@ const Settings = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     placeholder="Enter your username"
-                    style={styles.input}
+                    className="w-full px-4 py-2 border rounded-md dark:bg-gray-700 dark:text-white"
                     disabled
                   />
                 </div>
               </div>
 
-              <div style={styles.inputRow}>
-                <div style={styles.formGroup}>
-                  <label style={styles.label}>Email</label>
+              <div className="flex gap-4">
+                <div className="w-1/2">
+                  <label className="block text-gray-800 dark:text-gray-200 font-semibold">Email</label>
                   <input
                     type="email"
                     name="email"
@@ -147,12 +147,12 @@ const Settings = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     placeholder="Enter your email"
-                    style={styles.input}
+                    className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red dark:bg-gray-700 dark:text-white"
                   />
                 </div>
 
-                <div style={styles.formGroup}>
-                  <label style={styles.label}>Password</label>
+                <div className="w-1/2">
+                  <label className="block text-gray-800 dark:text-gray-200 font-semibold">Password</label>
                   <input
                     type="password"
                     name="password"
@@ -160,26 +160,26 @@ const Settings = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     placeholder="Enter your password"
-                    style={styles.input}
+                    className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red dark:bg-gray-700 dark:text-white"
                   />
                 </div>
               </div>
 
-              <div style={styles.inputRow}>
-                <div style={styles.formGroup}>
-                  <label style={styles.label}>Date of Birth</label>
+              <div className="flex gap-4">
+                <div className="w-1/2">
+                  <label className="block text-gray-800 dark:text-gray-200 font-semibold">Date of Birth</label>
                   <input
                     type="date"
                     name="dateOfBirth"
                     value={formData.dateOfBirth}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    style={styles.input}
+                    className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red dark:bg-gray-700 dark:text-white"
                   />
                 </div>
 
-                <div style={styles.formGroup}>
-                  <label style={styles.label}>Phone no.</label>
+                <div className="w-1/2">
+                  <label className="block text-gray-800 dark:text-gray-200 font-semibold">Phone no.</label>
                   <input
                     type="text"
                     name="phone"
@@ -187,182 +187,70 @@ const Settings = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     placeholder="Enter your phone number"
-                    style={styles.input}
+                    className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red dark:bg-gray-700 dark:text-white"
                   />
                 </div>
               </div>
             </div>
 
-            <button type="submit" style={styles.saveButton}>Save</button>
+            <button type="submit" className="px-6 py-2 bg-red text-white rounded-md font-bold hover:bg-red focus:ring-2 focus:ring-offset-2 focus:ring-red">
+              Save
+            </button>
           </form>
         ) : (
           <div>
-            <h2 style={styles.subHeader}>Two-factor Authentication</h2>
-            <div style={styles.twoFactor}>
-            <Switch
-  checked={enabled}
-  onChange={setEnabled}
-  className="relative inline-flex h-6 w-11 items-center rounded-full"
-  style={{
-    backgroundColor: enabled ? '#22c55e' : '#d1d5db', // Green when enabled, Gray when disabled
-    transition: 'background-color 0.2s ease',
-  }}
->
-  <span className="sr-only">Enable two-factor authentication</span>
-  <span
-    className={`${
-      enabled ? 'translate-x-6' : 'translate-x-1'
-    } inline-block h-4 w-4 transform bg-white rounded-full transition-transform duration-200 ease-in-out`}
-  />
-</Switch>
-
-              <span style={{ marginLeft: '10px' }}>
-                Enable or disable two-factor authentication
-              </span>
+            <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-4">Two-factor Authentication</h2>
+            <div className="flex items-center mb-6">
+              <Switch
+                checked={enabled}
+                onChange={setEnabled}
+                className={`${enabled ? 'bg-red' : 'bg-textgrey'} relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-200`}
+              >
+                <span className="sr-only">Enable two-factor authentication</span>
+                <span
+                  className={`${enabled ? 'translate-x-6' : 'translate-x-1'} inline-block h-4 w-4 transform bg-white rounded-full transition-transform duration-200`}
+                />
+              </Switch>
+              <span className="ml-2 text-gray-800 dark:text-gray-200">Enable or disable two-factor authentication</span>
             </div>
 
-            <h2 style={styles.subHeader}>Change Password</h2>
-            <form onSubmit={handlePasswordChange} style={styles.profileForm}>
-              <div style={styles.inputRow}>
-                <div style={styles.formGroup}>
-                  <label style={styles.label}>Current Password</label>
+            <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-4">Change Password</h2>
+            <form onSubmit={handlePasswordChange} className="space-y-6">
+              <div className="flex gap-4">
+                <div className="w-1/2">
+                  <label className="block text-gray-800 dark:text-gray-200 font-semibold">Current Password</label>
                   <input
                     type="password"
+                    name="currentPassword"
                     value={currentPassword}
                     onChange={(e) => setCurrentPassword(e.target.value)}
                     placeholder="Enter current password"
-                    style={styles.input}
+                    className="w-full px-4 py-2 border rounded-md dark:bg-gray-700 dark:text-white"
                   />
                 </div>
 
-                <div style={styles.formGroup}>
-                  <label style={styles.label}>New Password</label>
+                <div className="w-1/2">
+                  <label className="block text-gray-800 dark:text-gray-200 font-semibold">New Password</label>
                   <input
                     type="password"
+                    name="newPassword"
                     value={newPassword}
                     onChange={(e) => setNewPassword(e.target.value)}
                     placeholder="Enter new password"
-                    style={styles.input}
+                    className="w-full px-4 py-2 border rounded-md dark:bg-gray-700 dark:text-white"
                   />
                 </div>
               </div>
 
-              <button type="submit" style={styles.saveButton}>Save</button>
+              <button type="submit" className="px-6 py-2 bg-red text-white rounded-md font-bold hover:bg-red focus:ring-2 focus:ring-offset-2 focus:ring-red">
+                Save
+              </button>
             </form>
           </div>
         )}
       </div>
     </Base>
   );
-};
-
-const styles = {
-  settingsContainer: {
-    maxWidth: '900px',
-    margin: '0 auto',
-    padding: '40px',
-    backgroundColor: '#fff',
-    borderRadius: '8px',
-    boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
-  },
-  header: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    marginBottom: '30px',
-  },
-  profilePictureContainer: {
-    position: 'relative',
-  },
-  profileImage: {
-    width: '120px',
-    height: '120px',
-    borderRadius: '50%',
-    objectFit: 'cover',
-    border: '3px solid #ff4b5c',
-  },
-  editIcon: {
-    position: 'absolute',
-    bottom: '-10px',
-    right: '-5px',
-    backgroundColor: '#ff4b5c',
-    color: '#fff',
-    borderRadius: '50%',
-    padding: '5px',
-    cursor: 'pointer',
-    fontSize: '16px',
-  },
-  fileInput: {
-    display: 'none',
-  },
-  userName: {
-    fontSize: '24px',
-    fontWeight: 'bold',
-    marginTop: '10px',
-    color: '#333',
-  },
-  tabs: {
-    display: 'flex',
-    justifyContent: 'center',
-    marginBottom: '20px',
-  },
-  tab: {
-    marginRight: '20px',
-    padding: '10px 20px',
-    cursor: 'pointer',
-    fontWeight: 'bold',
-    color: '#999',
-  },
-  activeTab: {
-    borderBottom: '2px solid #ff4b5c',
-    color: '#ff4b5c',
-  },
-  profileForm: {
-    marginTop: '20px',
-  },
-  formContent: {
-    marginBottom: '20px',
-  },
-  inputRow: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    marginBottom: '20px',
-  },
-  formGroup: {
-    width: '48%',
-  },
-  label: {
-    display: 'block',
-    marginBottom: '8px',
-    color: '#333',
-    fontWeight: 'bold',
-  },
-  input: {
-    width: '100%',
-    padding: '10px',
-    border: '1px solid #ccc',
-    borderRadius: '4px',
-    fontSize: '16px',
-  },
-  saveButton: {
-    padding: '10px 20px',
-    backgroundColor: '#ff4b5c',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer',
-    fontWeight: 'bold',
-  },
-  subHeader: {
-    fontSize: '20px',
-    fontWeight: 'bold',
-    marginBottom: '10px',
-  },
-  twoFactor: {
-    display: 'flex',
-    alignItems: 'center',
-    marginBottom: '30px',
-  },
 };
 
 export default Settings;

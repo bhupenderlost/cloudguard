@@ -1,3 +1,5 @@
+/* eslint-disable prettier/prettier */
+// eslint-disable-next-line no-unused-vars
 import { 
   Route,
   HashRouter as Router,

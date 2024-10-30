@@ -1,3 +1,5 @@
+/* eslint-disable prettier/prettier */
+// eslint-disable-next-line no-unused-vars
 import { useEffect } from 'react'
 import Base from "../Components/Base/Base"
 

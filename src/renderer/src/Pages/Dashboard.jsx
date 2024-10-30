@@ -1,3 +1,5 @@
+/* eslint-disable prettier/prettier */
+// eslint-disable-next-line no-unused-vars
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Base from "../Components/Base/Base"

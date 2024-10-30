@@ -1,3 +1,5 @@
+/* eslint-disable prettier/prettier */
+// eslint-disable-next-line no-unused-vars
 const DashboardCard = (props) => {
     return(
         <div className="relative w-[350px] h-[235px] bg-[#d1dbec] rounded-[25px] shadow-md hover:shadow-lg transition-all hover:cursor-pointer dark:bg-darkbg2">

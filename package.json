@@ -20,7 +20,7 @@
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.1",
     "@electron-toolkit/utils": "^3.0.0",
-    "@headlessui/react": "^2.1.10",
+    "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.1.5",
     "chart.js": "^4.4.4",
     "heroicons": "^2.1.5",

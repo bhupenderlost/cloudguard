@@ -1,5 +1,5 @@
-// eslint-disable-next-line prettier/prettier
-/* eslint-disable react/prop-types */
+/* eslint-disable prettier/prettier */
+// eslint-disable-next-line no-unused-vars
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Logo from '../../Assets/Media/logo.png'
@@ -68,7 +68,6 @@ const Base = ({ children, title }) => {
     const changeTheme = () => {
         setDark(!dark)
         document.body.classList.toggle("dark")
-        alert(localStorage.getItem('theme'))
         localStorage.getItem('theme') == 'light' ? localStorage.setItem('theme', 'dark') : null
         localStorage.getItem('theme') == 'dark' ? localStorage.setItem('theme', 'light')  : null
         
