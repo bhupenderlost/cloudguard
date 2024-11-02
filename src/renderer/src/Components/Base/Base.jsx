@@ -118,7 +118,7 @@ const Base = ({ children, title }) => {
                         </div>
                     </div>
                 </div>
-                <div className="py-8 px-8">
+                <div className=" py-8 px-8">
                     { children }
                 </div>
             </div>

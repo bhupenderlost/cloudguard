@@ -58,7 +58,7 @@ const Dashboard = () => {
     })
     return(
         <Base title={'Dashboard'}>
-            <div className="flex flex-row justify-evenly h-1/2 w-full justify-evenly">
+            <div className="flex flex-row h-1/2 w-full justify-evenly">
                 <div className="w-2/3 my-2">
                     <h1 className="text-xl ml-4 py-4 text-[#343C6A] font-semibold dark:text-textgrey">Weekly Activity</h1>
                     <WeeklyActivity />
