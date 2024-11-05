@@ -47,7 +47,7 @@ const Base = ({ children, title }) => {
             link: "/keys",
             title: "Keys",
             active: location.hash == '#/keys' ? true : false,
-            icon: <KeyIcon width={28} height={28} className={location.hash === '#/keys' ? 'text-[#FE5C73] my-1 mx-2' : 'text-[#B1B1B1] my-1 mx-2'} />
+            icon: <KeyIcon width={28} height={28} className={location.hash === '#/keys' ? 'text-[#FE5C73] my-1 mx-2' : 'text-[#B1B1B1]  my-1 mx-2'} />
         },
         {
             _id: "5",

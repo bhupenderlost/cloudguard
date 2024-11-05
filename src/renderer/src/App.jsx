@@ -18,7 +18,7 @@ import Upload from './Pages/Upload'
 import Plans from './Pages/Plans'
 import Wallet from './Pages/Wallet'
 import Settings from './Pages/Settings'
-
+import Signup from './Pages/SignUp'
 
 const App = ()  => {
 
@@ -68,6 +68,10 @@ const App = ()  => {
         <Route 
           path='/settings'
           element={<Settings />}
+        />
+         <Route 
+          path='/signup'
+          element={<Signup />}
         />
       </Routes>
     </Router>
