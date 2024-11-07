@@ -19,7 +19,7 @@ import {
 
 const Base = ({ children, title }) => {
     const [hide, setHide] = useState(false)
-    const [dark, setDark] = useState(localStorage.getItem('theme') === 'dark' ? true : false)
+    const [dark, setDark] = useState(false)
     const menuItems = [
         {
             _id: "1",
@@ -67,10 +67,7 @@ const Base = ({ children, title }) => {
 
     const changeTheme = () => {
         setDark(!dark)
-        document.body.classList.toggle("dark")
-        localStorage.getItem('theme') == 'light' ? localStorage.setItem('theme', 'dark') : null
-        localStorage.getItem('theme') == 'dark' ? localStorage.setItem('theme', 'light')  : null
-        
+        document.body.classList.toggle("dark")        
     }
     return(
         <div className="w-screen h-screen bg-grey flex flex-row dark:bg-darkbg2 dark:text-white">
@@ -110,8 +107,7 @@ const Base = ({ children, title }) => {
                             <BellAlertIcon width={24} height={28} className="text-blue dark:text-textgrey" />
                         </div>
                         <div onClick={changeTheme} className="rounded-full w-[50px] h-[50px] bg-grey flex justify-center items-center shadow-inner shadow-sm hover:cursor-pointer dark:bg-darkbg dark:border-gray-800 dark:border-2" >
-                            { localStorage.getItem('theme') === 'light' ? <MoonIcon width={24} height={28} className="text-darkblue " /> : ''}
-                            { localStorage.getItem('theme') === 'dark' ? <SunIcon width={24} height={28} className="text-textgrey " /> : ''}
+                            { !dark? <MoonIcon width={24} height={28} className="text-darkblue " /> : <SunIcon width={24} height={28} className="text-darkblue "/>}
                         </div>
                         <div className="rounded-full w-[55px] h-[55px] bg-grey flex justify-center items-center dark:bg-darkbg dark:border-gray-800 dark:border-2">
                             <img src={ProfilePicture} alt="Profile Picture" className=" rounded-full dark:bg-darkbg"  />

@@ -13,7 +13,7 @@ const Wallet = () => {
                 <div id="root"></div>
                 <div className="p-8">
                     <div className="grid grid-cols-3 gap-4 mb-8">
-                        <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
+                        <div className="bg-white p-6 rounded-lg shadow-md flex items-center dark:bg-darkbg2">
                             <div className="bg-green-100 p-4 rounded-full mr-4">
                                 <i className="fas fa-dollar-sign text-green-500 text-2xl"></i>
                             </div>
@@ -22,7 +22,7 @@ const Wallet = () => {
                                 <p className="text-2xl font-semibold">$150,000</p>
                             </div>
                         </div>
-                        <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
+                        <div className="bg-white p-6 rounded-lg shadow-md flex items-center dark:bg-darkbg2">
                             <div className="bg-pink-100 p-4 rounded-full mr-4">
                                 <i className="fas fa-file-invoice-dollar text-pink-500 text-2xl"></i>
                             </div>
@@ -31,7 +31,7 @@ const Wallet = () => {
                                 <p className="text-2xl font-semibold">1,250</p>
                             </div>
                         </div>
-                        <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
+                        <div className="bg-white p-6 rounded-lg shadow-md flex items-center dark:bg-darkbg2">
                             <div className="bg-blue-100 p-4 rounded-full mr-4">
                                 <i className="fas fa-credit-card text-blue-500 text-2xl"></i>
                             </div>
@@ -44,7 +44,7 @@ const Wallet = () => {
                     <div className="grid grid-cols-2 gap-4">
                         <div>
                             <h2 className="text-lg font-semibold mb-4">Payment Modes</h2>
-                            <div className="bg-white p-6 rounded-lg shadow-md">
+                            <div className="bg-white p-6 rounded-lg shadow-md dark:bg-darkbg2">
                                 <div className="flex items-center mb-4">
                                     <div className="bg-yellow-100 p-4 rounded-full mr-4">
                                         <i className="fas fa-credit-card text-yellow-500 text-2xl"></i>
@@ -67,7 +67,7 @@ const Wallet = () => {
                         </div>
                         <div>
                             <h2 className="text-lg font-semibold mb-4">Monthly Expense</h2>
-                            <div className="bg-white p-6 rounded-lg shadow-md">
+                            <div className="bg-white p-6 rounded-lg shadow-md dark:bg-darkbg2">
                                 <img src="https://placehold.co/400x200?text=Graph" alt="Graph showing monthly expenses over time" />
                             </div>
                         </div>

@@ -22,7 +22,7 @@ const CustomSelect = ({ options, placeholder, value, onChange }) => {
         <div className="relative">
             <button
                 onClick={handleToggle}
-                className="border border-red px-4 py-2 rounded-md w-full h-12 text-left bg-white"
+                className="border border-red px-4 py-2 rounded-md w-full h-12 text-left bg-white dark:bg-darkbg2"
             >
                 {selected}
             </button>
@@ -32,7 +32,7 @@ const CustomSelect = ({ options, placeholder, value, onChange }) => {
                         <li
                             key={option}
                             onClick={() => handleSelect(option)}
-                            className="px-4 py-2 text-[#333333] cursor-pointer hover:text-black"
+                            className="px-4 py-2 text-[#333333] cursor-pointer hover:text-black "
                         >
                             {option}
                         </li>
@@ -96,7 +96,7 @@ const AddNewProject = () => {
                                     name="projectName"
                                     value={projectData.projectName}
                                     onChange={handleInputChange}
-                                    className="border border-red px-4 py-2 rounded-md w-full mt-1 h-12 outline-none"
+                                    className="border border-red px-4 py-2 rounded-md w-full mt-1 h-12 outline-none dark:bg-darkbg2"
                                 />
                             </div>
                             {projectData.projectName && (
@@ -182,7 +182,7 @@ const AddNewProject = () => {
                                     placeholder="Add a Short Project Overview..."
                                     value={projectData.description}
                                     onChange={handleInputChange}
-                                    className="border bg-[#F3F3F3] px-4 py-2 rounded-md w-[879px] mt-1 h-[236px] outline-none resize-none"
+                                    className="border bg-[#F3F3F3] px-4 py-2 dark:bg-darkbg2 rounded-md w-[879px] mt-1 h-[236px] outline-none resize-none"
                                 />
                             </div>
                             <div className="flex justify-end mt-6">

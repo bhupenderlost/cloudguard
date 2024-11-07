@@ -35,7 +35,7 @@ const Keys = () => {
 
     return (
         <Base title={'Keys'}>
-            <div className="w-[1072px] p-8 bg-white rounded-xl relative">
+            <div className="w-[1072px] p-8 bg-white rounded-xl relative dark:bg-darkbg2">
                 {/* Centered copy message */}
                 {copyMessage && (
                     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-5">

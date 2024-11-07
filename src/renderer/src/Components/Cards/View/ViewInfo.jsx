@@ -15,7 +15,7 @@ function ProjectInfo() {
   return (
     <div className="flex justify-between items-start ">
       <div className="flex flex-col">
-        <div className="space-y-4 h-[350px] w-[652px] bg-grey shadow-md rounded-3xl p-6">
+        <div className="space-y-4 h-[350px] w-[652px] bg-grey shadow-md rounded-3xl p-6 dark:bg-darkbg2">
           <h2 className="text-2xl font-semibold ">{projectData.name}</h2>
           <p className="text-[#A5A5A5]">{projectData.description}</p>
         </div>
