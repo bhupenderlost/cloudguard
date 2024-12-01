@@ -9,7 +9,7 @@ function ProjectRow({ project }) {
       <td className="px-4 py-2">{project.projectName}</td>
       <td className="px-4 py-2">{project.projectDescription}</td>
       <td className="px-4 py-2">{project.cloudPlatfrom}</td>
-      <td className="px-4 py-2">{project.createdAt.split(" ")[0]}</td>
+      {/* <td className="px-4 py-2">{project.createdAt.split(" ")[0]}</td> */}
      
     </tr>
   );

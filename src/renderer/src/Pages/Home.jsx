@@ -25,6 +25,7 @@ const Home = () => {
 
       }
       const response = await signIn(formData)
+      console.log(response)
       if(response.error) {
         alert(response.message)
         return setError(response)
@@ -49,11 +50,14 @@ const Home = () => {
         username,
         jwtToken
       })
+      console.log(success)
       if(success) {
         return navigate('/dashboard')
       }
+      alert(error)
       setError(error)
     }catch(err) {
+      alert(err)
       setError(err)
     }
   }

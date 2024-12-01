@@ -1,18 +1,19 @@
-/* eslint-disable prettier/prettier */
-// eslint-disable-next-line no-unused-vars
-import { Sequelize, DataTypes } from 'sequelize'
-import path from 'path'
-import { fileURLToPath } from 'url'
+import { Sequelize, DataTypes } from 'sequelize';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import dotenv from 'dotenv';
+import { app } from 'electron';
+dotenv.config(); // Ensure environment variables are loaded
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const dbPath = path.join(app.getPath('userData'), 'mydb.sqlite');
 
 const sequelize = new Sequelize({
   dialect: 'sqlite',
-  storage: path.join(__dirname, 'app.db'),
-})
-
-//App settings
+  storage: dbPath, 
+  logging: false, 
+});
 
 const App = sequelize.define('App', {
   theme: {
@@ -20,9 +21,9 @@ const App = sequelize.define('App', {
     allowNull: false,
     defaultValue: 0
   }
-})
+});
 
-//User Model
+// User Model
 const User = sequelize.define('User', {
   firstName: {
     type: DataTypes.STRING,
@@ -54,15 +55,16 @@ const User = sequelize.define('User', {
     allowNull: true
   },
   jwtToken: {
-    type:DataTypes.STRING,
+    type: DataTypes.STRING,
     allowNull: false
   }
-})
+});
 
+// File Model
 const File = sequelize.define('File', {
   fileName: {
     type: DataTypes.STRING,
-    allowNull:false
+    allowNull: false
   },
   filePath: {
     type: DataTypes.STRING,
@@ -77,8 +79,9 @@ const File = sequelize.define('File', {
     allowNull: false,
     unique: true
   }
-})
+});
 
+// Project Model
 const Project = sequelize.define('Project', {
   id: {
     type: DataTypes.INTEGER,
@@ -91,7 +94,7 @@ const Project = sequelize.define('Project', {
   },
   projectDescription: {
     type: DataTypes.TEXT,
-    allowNull:false
+    allowNull: false
   },
   cloudPlatfrom: {
     type: DataTypes.STRING,
@@ -113,21 +116,18 @@ const Project = sequelize.define('Project', {
     type: DataTypes.STRING,
     allowNull: false
   },
-})
-
+});
 
 Project.hasMany(File, {
-  foreignKey: 'projectId',
-  as: 'files',
+  foreignKey: 'projectId', 
+  as: 'files', 
   onDelete: 'CASCADE', 
 });
 
 File.belongsTo(Project, {
-  foreignKey: 'projectId',
-  as: 'project',
+  foreignKey: 'projectId', 
+  as: 'project', 
 });
-
-// Sync the database
 sequelize.sync({ alter: true })
   .then(() => console.log('Database synced successfully!'))
   .catch((err) => console.error('Database sync failed:', err))

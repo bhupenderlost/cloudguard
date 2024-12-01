@@ -11,7 +11,7 @@ const Signup = () => {
   useEffect(() => {
     window.electron.ipcRenderer.invoke('get-user')
       .then(data => {
-          if(data.user.length === 1) {
+          if(data.user) {
             return navigate('/dashboard')
           } 
       })

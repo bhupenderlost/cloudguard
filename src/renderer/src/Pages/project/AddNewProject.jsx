@@ -101,6 +101,7 @@ const AddNewProject = () => {
             }
             projectData.gcpBucketId !== '' ? data.gcpBucketId = projectData.gcpBucketId : null
             const response = await window.electron.ipcRenderer.invoke('create-project', data)
+            console.log(response)
             if (response.success) {
                 alert('Project Created!')
                 navigate('/projects')
