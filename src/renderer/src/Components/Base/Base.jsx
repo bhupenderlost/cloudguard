@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 // eslint-disable-next-line no-unused-vars
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Logo from '../../Assets/Media/logo.png'
 import ProfilePicture from '../../Assets/Media/profile-picture.jpg'
@@ -64,10 +64,14 @@ const Base = ({ children, title }) => {
             icon: <Cog6ToothIcon width={28} height={28} className={location.hash === '#/settings' ? 'text-[#FE5C73] my-1 mx-2' : 'text-[#B1B1B1] my-1 mx-2'} />
         }
     ]
-
-    const changeTheme = () => {
-        setDark(!dark)
-        document.body.classList.toggle("dark")        
+    
+    const changeTheme = async () => {
+        let { theme, error } = await window.electron.ipcRenderer.invoke('theme-change', dark ? 0 : 1)
+        console.log(theme)
+        console.log(error)
+        setDark(!dark) 
+        document.body.classList.toggle("dark")
+    
     }
     return(
         <div className="w-screen h-screen bg-grey flex flex-row dark:bg-darkbg2 dark:text-white">

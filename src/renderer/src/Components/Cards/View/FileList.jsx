@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
+import Loading from "../../Loading";
 
-function FileList() {
-  const files = [
-    { id: 1, name: "File 1", description: "lorem", info1: "**** **** 5600", info2: "lorem" },
-    { id: 2, name: "File 2", description: "lorem", info1: "**** **** 5600", info2: "lorem" },
-    { id: 3, name: "File 3", description: "lorem", info1: "**** **** 5600", info2: "lorem" },
-  ];
-
+function FileList({ files }) {
+  const [loading, setLoading] = useState(false)
+  const download = async (id) => {
+    setLoading(true)
+    try {
+      await window.electron.ipcRenderer.invoke('download-file', { id: id })
+      setLoading(false)
+    }catch(err) {
+      setLoading(false)
+      alert(err)
+    }
+  }
   return (
     <div className=" p-8 ">
+      {loading ? <Loading text={'Downloading And Decrypting'} icon={2} /> : ''}
       <div className="flex flex-col">
       <h3 className="text-lg font-semibold mb-2">Uploaded Files</h3>
       <div className="bg-[#1814F3] h-1 rounded-tl-[10px] rounded-tr-[10px] w-32"></div> 
@@ -17,22 +24,18 @@ function FileList() {
         {files.map((file) => (
           <div key={file.id} className="grid grid-cols-5 items-center gap-4 p-4  ">
             <div className="col-span-1">
-            <div className="font-semibold text-[#232323]">{file.name}</div>
-              <div className="text-[#718EBF]">Secondary</div>
+            <div className="font-semibold text-[#232323]">File ID</div>
+              <div className="text-[#718EBF]">{file.id}</div>
             </div>
             <div className="col-span-1 ">
-              <div className="font-semibold text-[#232323]">Info</div>
-              <div className="text-[#718EBF]">{file.description}</div>
+              <div className="font-semibold text-[#232323]">File Name</div>
+              <div className="text-[#718EBF]">{file.fileName}</div>
             </div>
-            <div className="col-span-1">
-              <div className="font-semibold text-[#232323]">Info</div>
-              <div className="text-[#718EBF]">{file.info1}</div>
+            <div className="col-span-1 ">
+              <div className="font-semibold text-[#232323]">Created At</div>
+              <div className="text-[#718EBF]">{file.createdAt.split(" ")[0]}</div>
             </div>
-            <div className="col-span-1">
-              <div className="font-semibold text-[#232323]">Info</div>
-              <div className="text-[#718EBF]">{file.info2}</div>
-            </div>
-            <div className="col-span-1 text-[#1814F3] hover:underline cursor-pointer">View Details</div>
+            <button disabled={loading} onClick={() => download(file.id)} className="col-span-1 text-[#1814F3] hover:underline cursor-pointer">Download</button>
           </div>
         ))}
       </div>

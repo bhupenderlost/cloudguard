@@ -6,21 +6,26 @@ import Base from '../Components/Base/Base'; // Importing Base component
 import ProfilePicture from '../Assets/Media/profile-picture.jpg';
 
 const Settings = () => {
+    const [formData, setFormData] = useState(null);
   useEffect(() => {
     window.document.title = 'Settings | Cloudguard';
-  }, []);
+    window.electron.ipcRenderer.invoke('get-user')
+      .then(data => {
+          setFormData({
+            name: data.user.firstName + ' ' + data.user.lastName,
+            username: data.user.username,
+            email: data.user.emailAddress
+
+          })
+          console.log(data)
+      })
+      .catch(err => {
+        alert(err)
+      })  }, []);
 
   const [activeTab, setActiveTab] = useState('profile');
 
-  const [formData, setFormData] = useState({
-    name: 'Charlene Reed',
-    username: 'Charlene Reed',
-    email: 'charlenereed@gmail.com',
-    password: '******',
-    dateOfBirth: '1990-01-25',
-    phone: '+91 XXXXXXXXX',
-  });
-
+ 
   const [profilePicture, setProfilePicture] = useState(''); // Placeholder image
   const [enabled, setEnabled] = useState(false);
   const [currentPassword, setCurrentPassword] = useState('');
@@ -66,6 +71,7 @@ const Settings = () => {
 
   return (
     <Base title={'Settings'}>
+      {!formData ? '': 
       <div className="max-w-3xl mx-auto p-10 bg-white dark:bg-darkbg2 rounded-lg shadow-lg dark:text-textgrey">
         {/* Header Area */}
         <div className="flex flex-col items-center mb-8">
@@ -112,6 +118,7 @@ const Settings = () => {
                 <div className="w-1/2">
                   <label className="block text-gray-800 dark:text-gray-200 font-semibold">Your Name</label>
                   <input
+                    disabled
                     type="text"
                     name="name"
                     value={formData.name}
@@ -141,6 +148,7 @@ const Settings = () => {
                 <div className="w-1/2">
                   <label className="block text-gray-800 dark:text-gray-200 font-semibold">Email</label>
                   <input
+                    disabled
                     type="email"
                     name="email"
                     value={formData.email}
@@ -151,7 +159,7 @@ const Settings = () => {
                   />
                 </div>
 
-                <div className="w-1/2">
+                {/* <div className="w-1/2">
                   <label className="block text-gray-800 dark:text-gray-200 font-semibold">Password</label>
                   <input
                     type="password"
@@ -162,10 +170,10 @@ const Settings = () => {
                     placeholder="Enter your password"
                     className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red dark:bg-gray-700 dark:text-white"
                   />
-                </div>
+                </div> */}
               </div>
 
-              <div className="flex gap-4">
+              {/* <div className="flex gap-4">
                 <div className="w-1/2">
                   <label className="block text-gray-800 dark:text-gray-200 font-semibold">Date of Birth</label>
                   <input
@@ -190,12 +198,12 @@ const Settings = () => {
                     className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red dark:bg-gray-700 dark:text-white"
                   />
                 </div>
-              </div>
+              </div> */}
             </div>
 
-            <button type="submit" className="px-6 py-2 bg-red text-white rounded-md font-bold hover:bg-red focus:ring-2 focus:ring-offset-2 focus:ring-red">
+            {/* <button type="submit" className="px-6 py-2 bg-red text-white rounded-md font-bold hover:bg-red focus:ring-2 focus:ring-offset-2 focus:ring-red">
               Save
-            </button>
+            </button> */}
           </form>
         ) : (
           <div>
@@ -249,6 +257,7 @@ const Settings = () => {
           </div>
         )}
       </div>
+      }
     </Base>
   );
 };

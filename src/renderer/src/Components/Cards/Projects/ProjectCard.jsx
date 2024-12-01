@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { PlusIcon } from '@heroicons/react/24/solid';
 
@@ -13,7 +12,7 @@ function ProjectCard({ isAddNew }) {
           <PlusIcon className="h-16 w-16 text-[#A0A0A0]"/>
         </Link>
       ) : (
-        <div className="bg-gray-200 dark:bg-darkbg2 w-full h-full rounded-3xl"></div>
+          <div  className="bg-gray-200 dark:bg-darkbg2 w-full h-full rounded-3xl"></div>
       )}
     </div>
   );

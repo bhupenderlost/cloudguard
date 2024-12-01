@@ -28,7 +28,7 @@ const Keys = () => {
                 setTimeout(() => {
                     setCopyMessage('');
                     setCopiedKeyIndex(null); // Remove highlight after timeout
-                }, 1000); // Message disappears after 2 seconds
+                }, 1000); // Message disappears after 1 seconds
             })
             .catch(err => console.error('Could not copy text: ', err));
     };

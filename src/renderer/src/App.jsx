@@ -50,7 +50,7 @@ const App = ()  => {
           element={<SubmissionSuccess />}
         />
         <Route 
-          path='/View'
+          path='/View/:id'
           element={<View />}
         />
         <Route 
