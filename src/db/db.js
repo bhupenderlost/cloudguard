@@ -3,10 +3,12 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import { app } from 'electron';
-dotenv.config(); // Ensure environment variables are loaded
+dotenv.config();
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
 const dbPath = path.join(app.getPath('userData'), 'mydb.sqlite');
 
 const sequelize = new Sequelize({
@@ -128,6 +130,7 @@ File.belongsTo(Project, {
   foreignKey: 'projectId', 
   as: 'project', 
 });
+
 sequelize.sync({ alter: true })
   .then(() => console.log('Database synced successfully!'))
   .catch((err) => console.error('Database sync failed:', err))

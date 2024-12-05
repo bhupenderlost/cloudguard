@@ -1,5 +1,5 @@
-appId: com.electron.app
-productName: cloudguard
+appId: com.cloudgaurd
+productName: cloudgaurd
 directories:
   buildResources: build
 files:
@@ -12,6 +12,7 @@ asarUnpack:
   - resources/**
 win:
   executableName: cloudguard
+  
 nsis:
   artifactName: ${name}-${version}-setup.${ext}
   shortcutName: ${productName}
